@@ -209,7 +209,7 @@
   .chart{margin-top:22px;border:1px solid var(--line);border-radius:14px;padding:22px 24px;background:#fff}
   .bars{display:flex;align-items:flex-end;gap:9px;height:220px;margin-top:6px}
   .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
-  .bar .fill{width:100%;max-width:44px;border-radius:6px 6px 0 0;height:0;transition:height .7s cubic-bezier(.4,0,.2,1);
+  .bar .fill{width:100%;max-width:44px;border-radius:6px 6px 0 0;height:0;flex:0 0 auto;transition:height .7s cubic-bezier(.4,0,.2,1);
     background:linear-gradient(180deg,var(--violet-lt),var(--violet))}
   .bar.peak .fill{background:linear-gradient(180deg,var(--blue-lt),var(--blue2))}
   .bar .amt{font-size:11px;font-weight:700;margin-bottom:6px}.bar .day{font-size:10px;color:var(--gray);margin-top:7px}
@@ -696,12 +696,12 @@
   let barsDrawn=false;
   function drawBars(){
     if(barsDrawn) return; barsDrawn=true;
-    const max=12.493, host=document.getElementById('bars');
+    const max=12.493, trackH=184, host=document.getElementById('bars');
     sched.forEach(([d,v],i)=>{
       const b=document.createElement('div'); b.className='bar'+(i===sched.length-1?' peak':'');
       b.innerHTML=`<div class="amt">$${v.toFixed(1)}M</div><div class="fill"></div><div class="day">${d}d</div>`;
       host.appendChild(b);
-      setTimeout(()=>{b.querySelector('.fill').style.height=(v/max*100)+'%';},60*i+40);
+      setTimeout(()=>{b.querySelector('.fill').style.height=(v/max*trackH)+'px';},60*i+40);
     });
   }
   document.addEventListener('keydown',e=>{
