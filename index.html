@@ -219,6 +219,34 @@
   .lm-card .lm-t{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.12}
   .lm-card .lm-v{font-size:10.5px;color:var(--violet);font-weight:600;margin-top:1px}
   .lm-card.active .lm-v{color:var(--blue2)}
+  /* closing slide */
+  .slide.closing{background:linear-gradient(125deg,#2a2160 0%,#5C4BB9 46%,#3893CD 100%);color:#fff;overflow:hidden}
+  .closing .closing-bg{position:absolute;right:-4%;top:0;height:100%;width:66%;object-fit:cover;opacity:.55;z-index:0;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 52%);mask-image:linear-gradient(to right,transparent,#000 52%)}
+  .closing:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(118deg,rgba(28,20,70,.6),rgba(28,20,70,.06) 66%)}
+  .closing .closing-inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:680px}
+  /* Kye portrait integrated into the quote card, breaking the top edge */
+  .closing .cl-quote{position:relative;overflow:visible;display:flex;align-items:center;gap:18px;max-width:660px}
+  .closing .cl-pcol{position:relative;flex:0 0 158px;align-self:stretch;min-height:118px}
+  .closing .cl-portrait{position:absolute;left:-44px;bottom:-23px;width:196px;height:auto;z-index:4;
+    filter:drop-shadow(0 14px 26px rgba(8,5,34,.5));
+    -webkit-mask-image:linear-gradient(to top,transparent 0,#000 9%);mask-image:linear-gradient(to top,transparent 0,#000 9%)}
+  .closing .cl-qtext{flex:1;min-width:0}
+  .closing .cl-eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#cfc9ff}
+  .closing .cl-head{font-size:46px;font-weight:800;letter-spacing:-1.4px;line-height:1.05;margin:14px 0 20px;color:#fff}
+  .closing .cl-head span{background:linear-gradient(110deg,#fff,#b9b4f0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .closing .cl-stat{display:flex;align-items:baseline;gap:13px;margin-bottom:24px}
+  .closing .cl-stat .cl-n{font-size:40px;font-weight:800;background:linear-gradient(100deg,#a6eb8c,#56bded);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .closing .cl-stat .cl-l{font-size:14px;color:rgba(255,255,255,.85)}
+  .closing .cl-quote{background:rgba(255,255,255,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:22px 26px;max-width:640px}
+  .closing .cl-quote p{font-size:16.5px;line-height:1.5;color:#fff;font-weight:500}
+  .closing .cl-by{display:flex;align-items:center;gap:12px;margin-top:16px}
+  .closing .cl-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.6);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex:0 0 auto}
+  .closing .cl-nm{font-size:14px;font-weight:700;color:#fff;display:block}
+  .closing .cl-ro{font-size:12px;color:#cfc9ff;display:block;margin-top:1px}
   /* cost-efficiency summation table */
   .sum-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:0 10px 28px rgba(60,40,120,.08)}
   .sum-card .row{display:grid;grid-template-columns:1.5fr 1fr 1fr;align-items:center}
@@ -297,6 +325,28 @@
   .dl .ft{font-size:11px;font-weight:800;letter-spacing:.5px;color:#fff;background:var(--blue);padding:4px 9px;border-radius:6px;display:inline-block}
   .dl h3{font-size:15.5px;margin:14px 0 6px;color:var(--ink)}.dl p{font-size:12px;color:var(--gray);line-height:1.45}
   .dl .go{margin-top:13px;font-size:13px;font-weight:700;color:var(--violet)}
+  /* cursor-following document preview */
+  #docPrev{position:fixed;top:0;left:0;width:220px;padding:8px;background:#fff;border-radius:14px;
+    box-shadow:0 28px 64px rgba(20,14,50,.5);border:1px solid rgba(231,230,242,.9);z-index:9999;pointer-events:none;
+    opacity:0;visibility:hidden;transform:scale(.95);transform-origin:top left;transition:opacity .15s ease,transform .15s ease}
+  #docPrev.show{opacity:1;visibility:visible;transform:scale(1)}
+  #docPrev img{width:100%;display:block;border-radius:9px;border:1px solid var(--line);max-height:300px;object-fit:cover;object-position:top}
+  /* SOW download block with All/Active/Closed filter */
+  .sow-block{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:16px;flex-wrap:wrap;
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 20px;box-shadow:0 8px 22px rgba(60,40,120,.08)}
+  .sow-info{display:flex;align-items:center;gap:14px}
+  .sow-block .ft{font-size:11px;font-weight:800;letter-spacing:.5px;color:#fff;background:#7c5be6;padding:4px 9px;border-radius:6px}
+  .sow-t{font-size:15px;font-weight:700;color:var(--ink)}
+  .sow-d{font-size:12px;color:var(--gray);margin-top:2px}
+  .sow-actions{display:flex;align-items:center;gap:14px}
+  .sow-filter{display:inline-flex;background:var(--gray-lt);border-radius:10px;padding:3px}
+  .sow-filter .sf{border:none;background:transparent;font-size:12.5px;font-weight:600;color:var(--gray);
+    padding:7px 13px;border-radius:8px;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:5px}
+  .sow-filter .sf i{font-style:normal;font-size:10px;font-weight:700;opacity:.65}
+  .sow-filter .sf.active{background:#fff;color:var(--violet);box-shadow:0 2px 6px rgba(60,40,120,.12)}
+  .sow-dl{display:inline-flex;align-items:center;text-decoration:none;font-size:13px;font-weight:700;color:#fff;
+    background:linear-gradient(120deg,var(--violet),var(--blue2));padding:10px 18px;border-radius:10px;transition:.15s;white-space:nowrap}
+  .sow-dl:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(92,75,185,.25)}
   .contacts{display:flex;gap:34px;margin-top:28px;flex-wrap:wrap}
   .contact .nm{font-size:15px;font-weight:700;color:#fff}.contact .ro{font-size:12.5px;color:rgba(255,255,255,.78);margin:2px 0 1px}
   .contact .em{font-size:12.5px;color:#cfc9ff;font-weight:600;text-decoration:none}
@@ -432,7 +482,8 @@
           <a href="downloads/Kroger-Experis-Value-Realization-Deck.pdf" target="_blank" download><span class="ft pdf">PDF</span><span><span class="dt">Download this deck</span><span class="dd">This presentation as a PDF</span></span></a>
           <a href="downloads/Kroger-Experis-One-Pager.pdf" target="_blank" download><span class="ft pdf">PDF</span><span><span class="dt">Executive One-Pager</span><span class="dd">Single-page summary</span></span></a>
           <a href="downloads/Kroger-Experis-Savings-Model.xlsx" target="_blank" download><span class="ft xls">XLS</span><span><span class="dt">Savings Model</span><span class="dd">Lever-by-lever breakdown</span></span></a>
-          <a href="downloads/Experis-IT-Services-RFI.xlsx" target="_blank" download><span class="ft xls">XLS</span><span><span class="dt">IT Services RFI</span><span class="dd">Experis RFI response workbook</span></span></a>
+          <a href="downloads/Kroger-Experis-Rate-Card-2026.xlsx" target="_blank" download><span class="ft xls">XLS</span><span><span class="dt">2026 Rate Card</span><span class="dd">Experis rate card for Kroger</span></span></a>
+          <a href="downloads/Kroger-Experis-SOWs-All.zip" download><span class="ft" style="background:#7c5be6;color:#fff;font-size:10px;font-weight:800;padding:3px 7px;border-radius:5px">ZIP</span><span><span class="dt">SOW Contracts</span><span class="dd">All FY2025 SOWs</span></span></a>
         </div>
       </div>
       <span class="chip"><img src="assets/kroger-logo.svg" alt="Kroger"></span>
@@ -452,7 +503,7 @@
             <p class="lead">A trusted IT resourcing and services partner for 10+ years. This plan shows how Experis delivers meaningful, near-term cost savings — while protecting delivery continuity and talent.</p>
             <div class="cta">
               <button class="btn primary" onclick="go(1)">Explore the plan →</button>
-              <button class="btn" onclick="go(11)">Jump to downloads</button>
+              <button class="btn" onclick="go(10)">Jump to downloads</button>
             </div>
           </div>
         </section>
@@ -480,7 +531,7 @@
               <div class="big">Up to ~$11M+</div>
               <ul>
                 <li>10% bill rate adjustment + furlough</li>
-                <li>$1M from AI &amp; automation</li>
+                <li>$1M target from AI &amp; automation</li>
                 <li>$1–7M from vendor streamlining</li>
               </ul>
             </div>
@@ -495,7 +546,7 @@
           <div class="grid c3" style="margin-top:8px;max-width:620px">
             <div class="card"><div class="v">10 yrs</div><p>A decade-long relationship built on trust and delivery.</p></div>
             <div class="card"><div class="v">950+</div><p>Consultants deployed; 200+ became Kroger employees.</p></div>
-            <div class="card"><div class="v">60+</div><p>Projects delivered across Kroger's IT landscape.</p></div>
+            <div class="card"><div class="v">60+</div><p>Projects across Merchandising, Associates, Product &amp; Marketing.</p></div>
           </div>
           <div class="metrics" style="max-width:620px;margin-top:18px">
             <div class="metric"><div class="big">$32.3M</div><div class="lbl">2025 Spend</div></div>
@@ -546,8 +597,8 @@
           <div class="grid c4">
             <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v13"/><path d="M7 12l5 5 5-5"/><path d="M5 21h14"/></svg></div><h3>Cost Efficiency</h3><div class="v">10% Bill Rate</div><p>Bill rate adjustment plus holiday furlough savings.</p></div>
             <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></div><h3>Vendor Streamlining</h3><div class="v">$1–7M</div><p>Consolidate vendor spend to Experis, annualized.</p></div>
-            <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><h3>AI &amp; Automation</h3><div class="v">$1M</div><p>Automation and AI-enabled delivery efficiencies.</p></div>
-            <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><h3>Steady State</h3><div class="v">Rate Card</div><p>Standardized process &amp; pricing for ongoing savings.</p></div>
+            <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><h3>AI &amp; Automation</h3><div class="v">$1M target</div><p>Automation and AI-enabled delivery efficiencies.</p></div>
+            <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><h3>Standardize Process &amp; Pricing</h3><div class="v">Rate Card</div><p>A modernized Experis rate card &amp; playbook — including near-shore — for ongoing YoY savings.</p></div>
           </div>
           <div class="flow">
             <div class="flow-end"><div class="fl-lab">Today · 2026 run rate</div><div class="fl-big">$20.4M</div><div class="fl-sub">IT Resourcing $7.1M&nbsp; +&nbsp; SOW $13.3M</div></div>
@@ -563,8 +614,8 @@
           <div class="lever-mini">
             <div class="lm-card active"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v13"/><path d="M7 12l5 5 5-5"/><path d="M5 21h14"/></svg></div><div><div class="lm-t">Cost Efficiency</div><div class="lm-v">10% Bill Rate</div></div></div>
             <div class="lm-card" onclick="go(6)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></div><div><div class="lm-t">Vendor Streamlining</div><div class="lm-v">$1–7M</div></div></div>
-            <div class="lm-card" onclick="go(7)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><div><div class="lm-t">AI &amp; Automation</div><div class="lm-v">$1M</div></div></div>
-            <div class="lm-card" onclick="go(4)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><div><div class="lm-t">Steady State</div><div class="lm-v">Rate Card</div></div></div>
+            <div class="lm-card" onclick="go(7)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><div><div class="lm-t">AI &amp; Automation</div><div class="lm-v">$1M target</div></div></div>
+            <div class="lm-card" onclick="go(4)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><div><div class="lm-t">Standardize Process &amp; Pricing</div><div class="lm-v">Rate Card</div></div></div>
           </div>
           <p class="lead" style="margin:-4px 0 18px">Two contributors combine into the Cost Efficiency lever — $2.1M in Kroger fiscal 2026 ($3.1M annualized).</p>
           <div class="split">
@@ -592,12 +643,12 @@
           <div class="lever-mini">
             <div class="lm-card" onclick="go(5)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v13"/><path d="M7 12l5 5 5-5"/><path d="M5 21h14"/></svg></div><div><div class="lm-t">Cost Efficiency</div><div class="lm-v">10% Bill Rate</div></div></div>
             <div class="lm-card active"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></div><div><div class="lm-t">Vendor Streamlining</div><div class="lm-v">$1–7M</div></div></div>
-            <div class="lm-card" onclick="go(7)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><div><div class="lm-t">AI &amp; Automation</div><div class="lm-v">$1M</div></div></div>
-            <div class="lm-card" onclick="go(4)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><div><div class="lm-t">Steady State</div><div class="lm-v">Rate Card</div></div></div>
+            <div class="lm-card" onclick="go(7)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><div><div class="lm-t">AI &amp; Automation</div><div class="lm-v">$1M target</div></div></div>
+            <div class="lm-card" onclick="go(4)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><div><div class="lm-t">Standardize Process &amp; Pricing</div><div class="lm-v">Rate Card</div></div></div>
           </div>
-          <p class="lead">Cumulative estimated savings to Kroger as vendor volume transitions to Experis over a phased schedule.</p>
-          <div class="chart"><div class="bars" id="bars"></div></div>
-          <p style="font-size:11.5px;color:var(--gray);margin-top:12px">*Assumes $85/hr average bill rate and current average mark-up factor of ~1.36. Days reflect transition milestones.</p>
+          <p class="lead">Estimated annualized savings to Kroger, scaling linearly with the number of consultants transitioned to Experis.</p>
+          <div class="chart"><div class="bars" id="bars"></div><div style="text-align:center;font-size:10.5px;color:var(--gray);margin-top:10px;letter-spacing:.6px;font-weight:700">CONSULTANTS TRANSITIONED</div></div>
+          <p style="font-size:11.5px;color:var(--gray);margin-top:12px">*Estimated annualized savings; assumes $95/hr average bill rate and 20% mark-up. Savings scale linearly with consultants transitioned.</p>
         </section>
 
         <!-- 6 AI -->
@@ -607,8 +658,8 @@
           <div class="lever-mini">
             <div class="lm-card" onclick="go(5)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v13"/><path d="M7 12l5 5 5-5"/><path d="M5 21h14"/></svg></div><div><div class="lm-t">Cost Efficiency</div><div class="lm-v">10% Bill Rate</div></div></div>
             <div class="lm-card" onclick="go(6)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></div><div><div class="lm-t">Vendor Streamlining</div><div class="lm-v">$1–7M</div></div></div>
-            <div class="lm-card active"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><div><div class="lm-t">AI &amp; Automation</div><div class="lm-v">$1M</div></div></div>
-            <div class="lm-card" onclick="go(4)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><div><div class="lm-t">Steady State</div><div class="lm-v">Rate Card</div></div></div>
+            <div class="lm-card active"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><div><div class="lm-t">AI &amp; Automation</div><div class="lm-v">$1M target</div></div></div>
+            <div class="lm-card" onclick="go(4)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><div><div class="lm-t">Standardize Process &amp; Pricing</div><div class="lm-v">Rate Card</div></div></div>
           </div>
           <div class="split" style="grid-template-columns:1fr .95fr;align-items:center">
             <div>
@@ -618,7 +669,7 @@
                 <li>AI-assisted delivery to improve speed and quality</li>
                 <li>Continuous efficiency gains across the engagement</li>
               </ul>
-              <div class="callout" style="margin-top:20px"><div class="t">Incremental savings<span>Through AI &amp; automation</span></div><div class="n">$1M</div></div>
+              <div class="callout" style="margin-top:20px"><div class="t">Targeted savings<span>Goalpost — AI &amp; automation</span></div><div class="n">~$1M</div></div>
             </div>
             <div class="ai-wrap"><div class="ai-orb"><canvas id="aiCanvas" width="720" height="720" aria-hidden="true"></canvas></div></div>
           </div>
@@ -631,8 +682,8 @@
           <div class="accent-line"></div>
           <div class="metrics" style="max-width:640px;margin-bottom:8px">
             <div class="metric"><div class="big">80%</div><div class="lbl">of implementations involve assignment transition</div></div>
-            <div class="metric"><div class="big">99%</div><div class="lbl">of contract workers stay on assignment when offered</div></div>
-            <div class="metric"><div class="big">1,000+</div><div class="lbl">workers transitioned in 2025/26 across 100+ clients</div></div>
+            <div class="metric"><div class="big">99%</div><div class="lbl">of contract consultants stay on assignment when offered</div></div>
+            <div class="metric"><div class="big">1,000+</div><div class="lbl">consultants transitioned in 2025/26 across 100+ clients</div></div>
           </div>
           <div class="clean-grid" style="max-width:680px">
             <div class="ci">Follow American Staffing Association (ASA) guidelines</div>
@@ -645,35 +696,7 @@
           <img class="person" src="assets/brand/person-b2c.png" alt="">
         </section>
 
-        <!-- 8 TIMELINE -->
-        <section class="slide" data-title="Transition Timeline">
-          <span class="kicker">Sample transition timeline</span>
-          <h1>A proven, phased path to Go Live</h1>
-          <div class="accent-line"></div>
-          <div class="timeline"><div class="tl-track">
-            <div class="tl-step"><div class="dot"></div><div class="ph">Prepare</div><div class="ds">Define logistics, gather workers &amp; kick-off</div></div>
-            <div class="tl-step"><div class="dot"></div><div class="ph">Align &amp; Communicate</div><div class="ds">Notify incumbents &amp; workforce; info sessions</div></div>
-            <div class="tl-step"><div class="dot"></div><div class="ph">Onboarding</div><div class="ds">Decisions due; Experis onboarding sessions</div></div>
-            <div class="tl-step"><div class="dot"></div><div class="ph">Backfills</div><div class="ds">Backfill as needed; onboarding finalized</div></div>
-            <div class="tl-step"><div class="dot"></div><div class="ph">Set-Up</div><div class="ds">Orientations; back-office updates complete</div></div>
-            <div class="tl-step go"><div class="dot"></div><div class="ph">Go Live</div><div class="ds">Transition complete</div></div>
-          </div></div>
-          <div class="steps-detail">
-            <div class="s"><b>Step 1</b> — Kroger notifies incumbent(s)</div>
-            <div class="s"><b>Step 2</b> — Workforce notified by incumbent</div>
-            <div class="s"><b>Step 3</b> — Experis engages incumbent supplier</div>
-            <div class="s"><b>Step 4</b> — Incumbent data received from client</div>
-            <div class="s"><b>Step 5</b> — Experis hosts worker info sessions</div>
-            <div class="s"><b>Step 6</b> — Workers' decision due</div>
-            <div class="s"><b>Step 7</b> — Experis hosts onboarding sessions</div>
-            <div class="s"><b>Step 8</b> — Experis backfills as needed</div>
-            <div class="s"><b>Step 9</b> — New consultant orientations</div>
-            <div class="s"><b>Step 10</b> — Kroger set-up &amp; back-office updates</div>
-          </div>
-          <p style="font-size:11.5px;color:var(--gray);margin-top:14px">Sample schedule — finalized jointly with Kroger once logistics and details are defined.</p>
-        </section>
-
-        <!-- 9 WORKSTREAMS -->
+        <!-- WORKSTREAMS -->
         <section class="slide" data-title="Implementation Workstreams">
           <span class="kicker">Implementation expertise</span>
           <h1>Nine proven workstreams</h1>
@@ -707,15 +730,42 @@
           <h1>Documents &amp; next steps</h1>
           <div class="accent-line"></div>
           <div class="dl-grid">
-            <a class="dl" href="downloads/Kroger-Experis-Value-Realization-Deck.pdf" target="_blank" download><span class="ft">PDF</span><h3>Value Realization Deck</h3><p>A static PDF copy of this deck.</p><div class="go">Download →</div></a>
-            <a class="dl" href="downloads/Kroger-Experis-One-Pager.pdf" target="_blank" download><span class="ft">PDF</span><h3>Executive One-Pager</h3><p>A single-page summary of the savings plan.</p><div class="go">Download →</div></a>
-            <a class="dl" href="downloads/Kroger-Experis-Savings-Model.xlsx" target="_blank" download><span class="ft">XLSX</span><h3>Savings Model</h3><p>Lever-by-lever breakdown with the vendor schedule.</p><div class="go">Download →</div></a>
-            <a class="dl" href="downloads/Experis-IT-Services-RFI.xlsx" target="_blank" download><span class="ft">XLSX</span><h3>IT Services RFI</h3><p>Experis RFI response workbook.</p><div class="go">Download →</div></a>
+            <a class="dl" data-prev="assets/previews/deck.jpg" href="downloads/Kroger-Experis-Value-Realization-Deck.pdf" target="_blank" download><span class="ft">PDF</span><h3>Value Realization Deck</h3><p>A static PDF copy of this deck.</p><div class="go">Download →</div></a>
+            <a class="dl" data-prev="assets/previews/onepager.jpg" href="downloads/Kroger-Experis-One-Pager.pdf" target="_blank" download><span class="ft">PDF</span><h3>Executive One-Pager</h3><p>A single-page summary of the savings plan.</p><div class="go">Download →</div></a>
+            <a class="dl" data-prev="assets/previews/savings.jpg" href="downloads/Kroger-Experis-Savings-Model.xlsx" target="_blank" download><span class="ft">XLSX</span><h3>Savings Model</h3><p>Lever-by-lever breakdown with the vendor schedule.</p><div class="go">Download →</div></a>
+            <a class="dl" data-prev="assets/previews/ratecard.jpg" href="downloads/Kroger-Experis-Rate-Card-2026.xlsx" target="_blank" download><span class="ft">XLSX</span><h3>2026 Rate Card</h3><p>Experis rate card for Kroger.</p><div class="go">Download →</div></a>
           </div>
-          <div class="callout" style="margin-top:24px"><div class="t">Ready to realize the value?<span>Total identified opportunity — annualized</span></div><div class="n">Up to ~$11M+</div></div>
+          <div class="sow-block">
+            <div class="sow-info"><span class="ft">ZIP</span><div><div class="sow-t">SOW Contracts — FY2025</div><div class="sow-d">Statements of work referenced in the 2026 Rate Card.</div></div></div>
+            <div class="sow-actions">
+              <div class="sow-filter" id="sowFilter">
+                <button class="sf active" data-z="All">All <i>21</i></button>
+                <button class="sf" data-z="Active">Active <i>15</i></button>
+                <button class="sf" data-z="Closed">Closed <i>6</i></button>
+              </div>
+              <a class="sow-dl" id="sowDl" href="downloads/Kroger-Experis-SOWs-All.zip" download>Download ZIP →</a>
+            </div>
+          </div>
           <div class="contacts">
             <div class="contact"><span class="nm">Isaac Hagen</span><span class="ro">SVP, Consumer Vertical</span><a class="em" href="mailto:isaac.hagen@manpowergroup.com">isaac.hagen@manpowergroup.com</a></div>
             <div class="contact"><span class="nm">Paige Beasley</span><span class="ro">Kroger Account Director</span><a class="em" href="mailto:paige.beasley@experis.com">paige.beasley@experis.com</a></div>
+          </div>
+        </section>
+
+        <!-- CLOSING -->
+        <section class="slide closing" data-title="Realize the Value">
+          <img class="closing-bg" src="assets/brand/glass-x-poster.jpg" alt="">
+          <div class="closing-inner">
+            <div class="cl-eyebrow">Our commitment to Kroger</div>
+            <h1 class="cl-head">Meaningful savings.<br>Zero disruption.<br><span>Delivered together.</span></h1>
+            <div class="cl-stat"><span class="cl-n">Up to ~$11M+</span><span class="cl-l">in identified annualized value</span></div>
+            <div class="cl-quote">
+              <div class="cl-pcol"><img class="cl-portrait" src="assets/Kye-cutout.png" alt="Kye Mitchell" onerror="this.style.display='none'"></div>
+              <div class="cl-qtext">
+                <p>"This is how Experis partners — human ingenuity and AI working together to take real cost out of the model, while protecting the talent and delivery Kroger depends on. We're ready to make it happen."</p>
+                <div class="cl-by"><span class="cl-nm">Kye Mitchell</span><span class="cl-ro">Global Leader, Experis</span></div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -734,7 +784,7 @@
 
 <script>
   /* ---- password gate ---- */
-  const PASSWORD="goteam";
+  const PASSWORD="ChooseExperis!";
   const gate=document.getElementById('gate'), app=document.getElementById('app');
   const pw=document.getElementById('pw'), err=document.getElementById('err'), prompt=document.getElementById('prompt');
   let unlocked=false;
@@ -753,7 +803,7 @@
     setTimeout(()=>{const v=document.querySelector('#bg video'); if(v) v.pause();},900);
   }
   function tryEnter(){
-    if(pw.value.trim().toLowerCase()===PASSWORD){unlock();}
+    if(pw.value.trim()===PASSWORD){unlock();}
     else{err.classList.add('show');prompt.classList.add('shake');setTimeout(()=>prompt.classList.remove('shake'),400);}
   }
   document.getElementById('enterBtn').onclick=tryEnter;
@@ -785,14 +835,14 @@
     slides[i].scrollTop=0;
     if(slides[i].querySelector('#bars')) drawBars();
   }
-  const sched=[[30,1.209],[60,2.418],[90,3.627],[120,4.836],[150,6.045],[180,7.254],[210,8.463],[240,9.672],[270,10.881],[310,12.493]];
+  const sched=[[50,1.1],[75,1.7],[100,2.3],[125,2.9],[150,3.5],[175,4.0],[200,4.6],[225,5.2],[250,5.8],[275,6.3],[300,7.0]];
   let barsDrawn=false;
   function drawBars(){
     if(barsDrawn) return; barsDrawn=true;
-    const max=12.493, trackH=184, host=document.getElementById('bars');
+    const max=7.0, trackH=184, host=document.getElementById('bars');
     sched.forEach(([d,v],i)=>{
       const b=document.createElement('div'); b.className='bar'+(i===sched.length-1?' peak':'');
-      b.innerHTML=`<div class="amt">$${v.toFixed(1)}M</div><div class="fill"></div><div class="day">${d}d</div>`;
+      b.innerHTML=`<div class="amt">$${v.toFixed(1)}M</div><div class="fill"></div><div class="day">${d}</div>`;
       host.appendChild(b);
       setTimeout(()=>{b.querySelector('.fill').style.height=(v/max*trackH)+'px';},60*i+40);
     });
@@ -891,6 +941,31 @@
     shareBtn.classList.add('ok'); shareBtn.setAttribute('data-tip','Link copied!');
     clearTimeout(shareBtn._t); shareBtn._t=setTimeout(()=>{shareBtn.classList.remove('ok');shareBtn.setAttribute('data-tip','Copy link');},2000);
   };
+
+  /* ---- cursor-following document preview ---- */
+  const docPrev=document.createElement('div'); docPrev.id='docPrev'; docPrev.innerHTML='<img alt="">';
+  document.body.appendChild(docPrev); const dpImg=docPrev.querySelector('img');
+  document.querySelectorAll('.dl[data-prev]').forEach(a=>{
+    a.addEventListener('mouseenter',()=>{dpImg.src=a.dataset.prev;docPrev.classList.add('show');});
+    a.addEventListener('mousemove',e=>{
+      const pad=18,w=docPrev.offsetWidth||220,h=docPrev.offsetHeight||260;
+      let x=e.clientX+pad,y=e.clientY+pad;
+      if(x+w>innerWidth) x=e.clientX-pad-w;
+      if(y+h>innerHeight) y=e.clientY-pad-h;
+      docPrev.style.left=x+'px';docPrev.style.top=y+'px';
+    });
+    a.addEventListener('mouseleave',()=>docPrev.classList.remove('show'));
+  });
+
+  /* ---- SOW download filter ---- */
+  const sowDl=document.getElementById('sowDl');
+  if(sowDl) document.querySelectorAll('#sowFilter .sf').forEach(btn=>{
+    btn.onclick=e=>{e.preventDefault();
+      document.querySelectorAll('#sowFilter .sf').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      sowDl.href='downloads/Kroger-Experis-SOWs-'+btn.dataset.z+'.zip';
+    };
+  });
 
   go(0);
 </script>
