@@ -219,6 +219,19 @@
   .lm-card .lm-t{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.12}
   .lm-card .lm-v{font-size:10.5px;color:var(--violet);font-weight:600;margin-top:1px}
   .lm-card.active .lm-v{color:var(--blue2)}
+  /* vendor pictograph (population-style per-head infographic) */
+  .pictos{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+  .picto{display:grid;grid-template-columns:100px 1fr 120px;align-items:center;gap:20px}
+  .picto+.picto{border-top:1px dashed var(--line);padding-top:14px}
+  .picto .pcount{display:flex;flex-direction:column}
+  .picto .pcount .pn{font-size:27px;font-weight:800;color:var(--ink);line-height:1}
+  .picto .pcount .pl{font-size:11px;color:var(--gray);margin-top:3px}
+  .picto .picons{display:flex;flex-wrap:wrap;gap:3px}
+  .picto .picons svg{width:14px;height:14px;flex:0 0 auto;fill:var(--violet-lt);transition:opacity .2s ease}
+  .picto.peak .picons svg{fill:var(--blue2)}
+  .picto .pcap{font-size:9.5px;font-weight:800;letter-spacing:.5px;color:var(--blue2);margin-top:4px;text-transform:uppercase;line-height:1.2}
+  .picto .pval{font-size:24px;font-weight:800;text-align:right;
+    background:linear-gradient(120deg,var(--blue),var(--violet-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   /* closing slide */
   .slide.closing{background:linear-gradient(125deg,#2a2160 0%,#5C4BB9 46%,#3893CD 100%);color:#fff;overflow:hidden}
   .closing .closing-bg{position:absolute;right:-4%;top:0;height:100%;width:66%;object-fit:cover;opacity:.55;z-index:0;
@@ -577,12 +590,14 @@
               <div class="pchip"><div class="av" style="background:#5b4bc4">BW</div><div class="pn">Bryan Wall</div><div class="pr">Delivery Leader</div></div>
               <div class="pchip"><div class="av" style="background:#5b4bc4">LG</div><div class="pn">Lindsay Glidewell</div><div class="pr">Engagement Manager*</div></div>
               <div class="pchip"><div class="av" style="background:#5b4bc4">SL</div><div class="pn">Shawna Lawton</div><div class="pr">Engagement Manager*</div></div>
+              <div class="pchip"><div class="av" style="background:#5b4bc4">JE</div><div class="pn">Josh Eastman</div><div class="pr">Quality Engineering</div></div>
+              <div class="pchip"><div class="av" style="background:#5b4bc4">EB</div><div class="pn">Erick Brown</div><div class="pr">Data Engineering</div></div>
             </div>
             <div class="org-tier t4"><h4>Operations</h4><span>Process, Experience &amp; Compliance</span></div>
             <div class="org-row">
               <div class="pchip"><div class="av" style="background:#7d5be6">WF</div><div class="pn">Wendy Ferreira</div><div class="pr">Consultant Experience Mgr</div></div>
               <div class="pchip"><div class="av" style="background:#7d5be6"></div><div class="pn">Onboarding</div><div class="pr">People</div></div>
-              <div class="pchip"><div class="av" style="background:#7d5be6"></div><div class="pn">Finance</div><div class="pr">Invoicing</div></div>
+              <div class="pchip"><div class="av" style="background:#7d5be6">AF</div><div class="pn">Aubryn Falk</div><div class="pr">Invoicing</div></div>
               <div class="pchip"><div class="av" style="background:#7d5be6"></div><div class="pn">Legal/Compliance</div><div class="pr">Contract</div></div>
             </div>
           </div>
@@ -646,9 +661,9 @@
             <div class="lm-card" onclick="go(7)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.8L18.5 9.5l-4.8 1.7L12 16l-1.7-4.8L5.5 9.5l4.8-1.7z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></div><div><div class="lm-t">AI &amp; Automation</div><div class="lm-v">$1M target</div></div></div>
             <div class="lm-card" onclick="go(4)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg></div><div><div class="lm-t">Standardize Process &amp; Pricing</div><div class="lm-v">Rate Card</div></div></div>
           </div>
-          <p class="lead">Estimated annualized savings to Kroger, scaling linearly with the number of consultants transitioned to Experis.</p>
-          <div class="chart"><div class="bars" id="bars"></div><div style="text-align:center;font-size:10.5px;color:var(--gray);margin-top:10px;letter-spacing:.6px;font-weight:700">CONSULTANTS TRANSITIONED</div></div>
-          <p style="font-size:11.5px;color:var(--gray);margin-top:12px">*Estimated annualized savings; assumes $95/hr average bill rate and 20% mark-up. Savings scale linearly with consultants transitioned.</p>
+          <p class="lead">Annualized savings scale linearly — about <b style="color:var(--violet)">$23.1K for every consultant</b> transitioned to Experis.</p>
+          <div class="pictos" id="pictos"></div>
+          <p style="font-size:11.5px;color:var(--gray);margin-top:16px">*Estimated annualized savings; assumes $95/hr average bill rate and 20% mark-up. Savings scale linearly with consultants transitioned.</p>
         </section>
 
         <!-- 6 AI -->
@@ -676,7 +691,7 @@
         </section>
 
         <!-- 7 TRANSITION BEST PRACTICES (person) -->
-        <section class="slide peoplebg" data-title="Talent Transition">
+        <section class="slide peoplebg" data-title="Standardized Processes">
           <span class="kicker">Ensuring a smooth program change</span>
           <h1>Talent transition best practices</h1>
           <div class="accent-line"></div>
@@ -833,18 +848,20 @@
     document.getElementById('prev').disabled=(i===0);
     document.getElementById('next').disabled=(i===N-1);
     slides[i].scrollTop=0;
-    if(slides[i].querySelector('#bars')) drawBars();
+    if(slides[i].querySelector('#pictos')) drawPictos();
   }
-  const sched=[[50,1.1],[75,1.7],[100,2.3],[125,2.9],[150,3.5],[175,4.0],[200,4.6],[225,5.2],[250,5.8],[275,6.3],[300,7.0]];
-  let barsDrawn=false;
-  function drawBars(){
-    if(barsDrawn) return; barsDrawn=true;
-    const max=7.0, trackH=184, host=document.getElementById('bars');
-    sched.forEach(([d,v],i)=>{
-      const b=document.createElement('div'); b.className='bar'+(i===sched.length-1?' peak':'');
-      b.innerHTML=`<div class="amt">$${v.toFixed(1)}M</div><div class="fill"></div><div class="day">${d}</div>`;
-      host.appendChild(b);
-      setTimeout(()=>{b.querySelector('.fill').style.height=(v/max*trackH)+'px';},60*i+40);
+  function drawPictos(){
+    const host=document.getElementById('pictos'); if(!host||host.dataset.done) return; host.dataset.done=1;
+    const PERSON='<svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM3 22a9 9 0 0 1 18 0z"/></svg>';
+    const rows=[[1,'consultant','$23.1K',false],[10,'consultants','$231K',false],[100,'consultants','$2.3M',false],[300,'consultants','$7.0M',true]];
+    rows.forEach(([n,label,val,cap],r)=>{
+      const div=document.createElement('div'); div.className='picto'+(cap?' peak':'');
+      div.innerHTML=`<div class="pcount"><span class="pn">${n}</span><span class="pl">${label}</span>${cap?'<span class="pcap">Full transition cap</span>':''}</div>`+
+        `<div class="picons">${PERSON.repeat(n)}</div>`+
+        `<div class="pval">${val}</div>`;
+      host.appendChild(div);
+      // gentle staggered reveal of icons
+      [...div.querySelectorAll('.picons svg')].forEach((s,i)=>{s.style.opacity=0;setTimeout(()=>s.style.opacity=1,r*100+i*4);});
     });
   }
   document.addEventListener('keydown',e=>{
