@@ -476,6 +476,72 @@
   .index::-webkit-scrollbar-thumb,.slide::-webkit-scrollbar-thumb{background:rgba(150,150,190,.45);border-radius:4px}
   /* Layout is locked to a minimum width (.app min-width) so it never reflows/stacks.
      On narrower viewports the deck scrolls horizontally instead of breaking. */
+
+  /* ===== APPENDIX (content added after the original delivery) ===== */
+  /* A persistent corner pill marks every appendix slide as new/supplementary. */
+  .slide.appendix::after{content:"APPENDIX";position:absolute;top:30px;right:52px;z-index:6;
+    font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#fff;
+    background:linear-gradient(120deg,var(--violet),var(--blue2));padding:6px 13px;border-radius:20px;
+    box-shadow:0 6px 16px rgba(60,40,120,.30)}
+  .appendix-divider::after{display:none}  /* divider already announces the section */
+  .appendix-divider .cl-note{font-size:16.5px;color:rgba(255,255,255,.92);max-width:600px;line-height:1.55;margin-top:6px}
+  /* Roadmap wave cards: a numbered, sequenced feel */
+  .wave .wn{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--blue2);text-transform:uppercase}
+  .wave h3{font-size:19px;margin:6px 0 8px;background:linear-gradient(120deg,var(--blue),var(--violet-lt));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .flowline{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:13px;font-weight:700;color:var(--violet)}
+  .flowline span{background:rgba(115,107,222,.12);padding:5px 12px;border-radius:20px}
+  .flowline .ar{color:var(--blue-lt);font-weight:800}
+  /* Nav: visually separate the appendix group from the core deck */
+  .nav-sep{margin:15px 8px 8px;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;
+    color:#8f88c9;display:flex;align-items:center;gap:9px}
+  .nav-sep:before,.nav-sep:after{content:"";flex:1;height:1px;background:rgba(155,148,250,.28)}
+  .nav-item.appendix-item .num{background:linear-gradient(135deg,var(--violet),var(--blue2));color:#fff}
+  .nav-item.appendix-item.active .num{background:linear-gradient(135deg,var(--violet-lt),var(--blue-lt))}
+  /* clickable case-study cards + detail modal */
+  .case-card{cursor:pointer;display:flex;flex-direction:column}
+  .case-card .tag{align-self:flex-start}
+  .case-card .case-more{display:inline-block;align-self:flex-start;margin-top:auto;padding-top:14px;font-size:12px;font-weight:700;color:var(--violet);transition:.15s}
+  .case-card:hover .case-more{color:var(--blue2)}
+  .cm-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:40px;
+    background:rgba(16,12,40,.55);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+  .cm-overlay.show{display:flex}
+  .cm-modal{position:relative;width:min(820px,92vw);max-height:86vh;overflow:auto;background:#fff;border-radius:20px;
+    box-shadow:0 40px 100px rgba(20,14,50,.5);padding:38px 44px;animation:cmIn .22s ease}
+  @keyframes cmIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .cm-close{position:absolute;top:15px;right:17px;width:34px;height:34px;border:none;border-radius:9px;cursor:pointer;
+    background:var(--gray-lt);color:var(--ink);font-size:19px;line-height:1;display:flex;align-items:center;justify-content:center}
+  .cm-close:hover{background:#e2e0ee}
+  .cm-eyebrow{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--violet)}
+  .cm-modal h2{font-size:25px;line-height:1.16;letter-spacing:-.4px;margin:8px 0 13px;color:var(--ink)}
+  .cm-stat{display:inline-block;font-size:14px;font-weight:800;color:#fff;padding:6px 15px;border-radius:30px;
+    background:linear-gradient(120deg,var(--violet),var(--blue2))}
+  .cm-sec{margin-top:20px}
+  .cm-sec h4{font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--blue2);
+    margin-bottom:9px;display:flex;align-items:center;gap:10px}
+  .cm-sec h4:after{content:"";flex:1;height:1px;background:var(--line)}
+  .cm-sec p{font-size:14px;line-height:1.62;color:var(--gray);margin-bottom:8px}
+  .cm-sec ul{margin:4px 0 0;padding-left:18px}
+  .cm-sec li{font-size:14px;line-height:1.55;color:var(--gray);margin-bottom:7px}
+  .cm-sec li::marker{color:var(--violet-lt)}
+  .cm-items{margin-top:2px}
+  .cm-item{padding:10px 0;border-bottom:1px solid var(--line)}
+  .cm-item:last-child{border-bottom:none}
+  .cm-iname{display:block;font-size:13.5px;font-weight:700;color:var(--ink)}
+  .cm-idet{display:block;font-size:13px;color:var(--gray);line-height:1.55;margin-top:2px}
+  .cm-out{display:block;margin-top:7px;font-size:12.5px;line-height:1.45;color:var(--gray)}
+  .cm-olab{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:var(--violet);margin-right:8px}
+  /* compact proof-point utility strip above the case-study cards */
+  .proof-strip{display:flex;gap:10px;margin-top:16px}
+  .proof-strip .ps{flex:1;min-width:0;background:linear-gradient(150deg,rgba(115,107,222,.10),rgba(86,189,237,.10));
+    border:1px solid var(--line);border-radius:11px;padding:11px 14px}
+  .proof-strip .ps .n{font-size:19px;font-weight:800;line-height:1;
+    background:linear-gradient(120deg,var(--blue),var(--violet-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .proof-strip .ps .l{font-size:10.5px;color:var(--gray);margin-top:5px;line-height:1.25}
+  /* direct complimentary-assessment value line (above the wave cards) */
+  .offer-line{display:inline-block;margin:14px 0 2px;padding:11px 16px;font-size:14px;line-height:1.55;color:var(--ink);
+    background:rgba(115,107,222,.07);border-left:3px solid var(--violet-lt);border-radius:8px}
+  .offer-line strong{font-weight:800;color:var(--violet)}
 </style>
 </head>
 <body>
@@ -792,6 +858,55 @@
           </div>
         </section>
 
+        <!-- ============================================================
+             APPENDIX: content added AFTER the original delivery.
+             Visually set apart (divider + corner "APPENDIX" badge + nav group)
+             so it's clearly new, supplementary material.
+             ============================================================ -->
+        <section class="slide closing appendix appendix-divider" data-title="Appendix" data-appendix>
+          <img class="closing-bg" src="assets/brand/glass-caps-poster.jpg" alt="">
+          <div class="closing-inner">
+            <div class="cl-eyebrow">Appendix · Added June 26, 2026</div>
+            <h1 class="cl-head">Additional AI &amp;<br><span>Automation</span> material</h1>
+            <p class="cl-note">Added after the original delivery as supplementary material: a phased AI and automation savings roadmap, plus a selection of Experis proof points.</p>
+          </div>
+        </section>
+
+        <section class="slide appendix" data-title="AI Savings Roadmap" data-appendix>
+          <span class="kicker">Appendix · AI &amp; Automation</span>
+          <h1>A phased AI &amp; automation savings roadmap</h1>
+          <div class="accent-line"></div>
+          <p class="lead">Three waves, sequenced so each builds on the last. Savings start with efficiency gains, then structural de-duplication, then direct labor cost as the program matures.</p>
+          <div class="offer-line"><strong>The first LOB assessment is free.</strong></div>
+          <div class="grid c3">
+            <div class="card wave case-card" onclick="openWave('w1')"><span class="wn">Wave 1 · 0–3 months</span><h3>Automate</h3><p>AI-assisted QA and development raise output and quality, with no organizational change required.</p><span class="case-more">View workstreams →</span></div>
+            <div class="card wave case-card" onclick="openWave('w2')"><span class="wn">Wave 2 · 3–9 months</span><h3>Consolidate</h3><p>Shared platform engineering and consolidated delivery pods strip out duplicated cost.</p><span class="case-more">View workstreams →</span></div>
+            <div class="card wave case-card" onclick="openWave('w3')"><span class="wn">Wave 3 · 9–18 months</span><h3>Relocate</h3><p>Relocate mature work to lower-cost locations.</p><span class="case-more">View workstreams →</span></div>
+          </div>
+          <div class="flowline"><span>Automate</span><span class="ar">→</span><span>Consolidate</span><span class="ar">→</span><span>Relocate</span><span style="background:none;color:var(--gray);font-weight:600">Crawl. Walk. Run.</span></div>
+        </section>
+
+        <section class="slide appendix" data-title="Case Studies" data-appendix>
+          <span class="kicker">Appendix · Proof points &amp; case studies</span>
+          <h1>AI &amp; automation, already delivering</h1>
+          <div class="accent-line"></div>
+          <p class="lead">A selection of Experis engagements where AI and automation produced measurable savings and reclaimed capacity. Select a card for the full story.</p>
+          <div class="proof-strip">
+            <div class="ps"><div class="n">$12M</div><div class="l">Saved over 3 years</div></div>
+            <div class="ps"><div class="n">$5M+</div><div class="l">Annual · 64K hours</div></div>
+            <div class="ps"><div class="n">$3.75M</div><div class="l">15 teams freed</div></div>
+            <div class="ps"><div class="n">$2M</div><div class="l">Back-office RPA</div></div>
+            <div class="ps"><div class="n">$5B</div><div class="l">Inventory protected</div></div>
+          </div>
+          <div class="grid c3" style="margin-top:16px">
+            <div class="card case-card" onclick="openCase('fs')"><span class="tag">Financial Services</span><div class="v">$12M / 3 yrs</div><p>Consolidated resources through a bulk-buy program. AI and automation stabilized operations and rebuilt product teams.</p><span class="case-more">View case study →</span></div>
+            <div class="card case-card" onclick="openCase('qa')"><span class="tag">Banking · QA</span><div class="v">$5M/yr · 64K hrs</div><p>A 200-person, AI-supported QA team kept quality steady across M&amp;A migrations, upgrades, and regulatory change.</p><span class="case-more">View case study →</span></div>
+            <div class="card case-card" onclick="openCase('life')"><span class="tag">Life Sciences</span><div class="v">$3.75M</div><p>SAP GRC process optimization and SOP standardization removed busywork across fifteen teams.</p><span class="case-more">View case study →</span></div>
+            <div class="card case-card" onclick="openCase('rpa')"><span class="tag">Data &amp; Analytics</span><div class="v">$2M</div><p>Nearshore UiPath RPA automated back-office data work and improved SQL/ETL performance, accuracy, and security.</p><span class="case-more">View case study →</span></div>
+            <div class="card case-card" onclick="openCase('retail')"><span class="tag">Retail · Cloud</span><div class="v">$5B protected</div><p>An AI-assisted, event-driven disaster-recovery platform coordinates outage response across thousands of stores.</p><span class="case-more">View case study →</span></div>
+          </div>
+        </section>
+
       </div>
       <div class="stepper">
         <div class="dots" id="dots"></div>
@@ -805,9 +920,106 @@
   </div>
 </div>
 
+<!-- Case-study detail modal (appendix) -->
+<div class="cm-overlay" id="caseModal" onclick="if(event.target===this)closeCase()">
+  <div class="cm-modal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+    <button class="cm-close" onclick="closeCase()" aria-label="Close">&times;</button>
+    <div class="cm-eyebrow" id="cmEyebrow"></div>
+    <h2 id="cmTitle"></h2>
+    <span class="cm-stat" id="cmStat"></span>
+    <div id="cmBody"></div>
+  </div>
+</div>
+
 <script>
   /* Show the PDF-only download notice when rendered from a local file (PDF export), not on the live https site. */
   if(location.protocol==="file:")document.body.classList.add("is-file");
+
+  /* ---- Appendix: detail modals (rebuilt from the source decks) ----
+     One modal serves both case studies and roadmap waves. Each entry has an
+     eyebrow, title, stat pill, and a list of sections. A section can hold a
+     paragraph (p), a bullet list (list), or named workstream items (items). */
+  const calloutHTML=(label,text)=>`<span class="cm-out"><span class="cm-olab">${label}</span>${text}</span>`;
+  const renderSections=(secs)=>secs.map(s=>{
+    let body='';
+    if(s.p) body+=`<p>${s.p}</p>`;
+    if(s.list) body+=`<ul>${s.list.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+    if(s.items) body+=`<div class="cm-items">${s.items.map(it=>`<div class="cm-item"><span class="cm-iname">${it.name}</span><span class="cm-idet">${it.detail}</span>${it.outcome?calloutHTML('Outcome',it.outcome):''}</div>`).join('')}</div>`;
+    if(s.callout) body+=calloutHTML(s.callout.label,s.callout.text);
+    return `<div class="cm-sec">${s.h?`<h4>${s.h}</h4>`:''}${body}</div>`;
+  }).join('');
+
+  const CASES={
+    fs:{eyebrow:'Data &amp; Analytics · Financial Services',title:'$12M saved over three years with AI and automation',stat:'$12M over 3 years',sections:[
+      {h:'The Challenge',p:'A leading financial services organization needed to streamline operations and improve performance and satisfaction. Dissatisfied with a previous integrator, they chose to consolidate resources through our bulk-buy program.'},
+      {h:'How We Help',list:['Provided leadership advisory across requirements gathering, project management, and resource management.','Deployed consultants with relevant industry and application experience to stabilize operations.','Built product teams of product owners, product managers, and business systems analysts.']},
+      {h:'The Impact',list:['$12M in savings over three years.','Improved consumer-facing initiatives through targeted collaboration.','Demonstrated measurable value from innovation.']}
+    ]},
+    qa:{eyebrow:'Quality Assurance &amp; Engineering · Financial Services',title:'$5M saved, 64,000 hours reclaimed, a 200-person QA team',stat:'$5M / year · 64,000 hours',sections:[
+      {h:'The Challenge',p:'Amid rapid M&amp;A growth and stretched QA resources, a top-twenty bank struggled to maintain quality across critical systems, technology upgrades, migrations, and regulatory changes. They needed a scalable QA solution to manage capacity, workload, and automation while controlling cost.'},
+      {h:'How We Help',list:['Provided test leadership and manual and automation support, compliant with bank standards.','Integrated a dedicated team with the bank’s QA group to build a governance plan, identify improvements, and deliver testing services.','Scaled from 120 consultants in year one to more than 200 currently aligned.','Tooling included Jira, Xray, Azure, MS Teams, Confluence, Selenium, Sauce Labs, TestNG, Cucumber (BDD), Delphix, AppDynamics, and GitLab.']},
+      {h:'The Impact',list:['$5M annual savings.','64,000 hours saved annually.','Continuity of domain and technical knowledge.','High-quality system and application releases across upgrades and migrations.']}
+    ]},
+    life:{eyebrow:'Strategy &amp; Transformation · Life Sciences',title:'$3.75M saved, freeing 15 teams from busywork',stat:'$3.75M saved',sections:[
+      {h:'The Challenge',p:'A Fortune 20 life sciences organization set out to streamline operations and improve productivity by introducing process efficiencies and automation, and by building a culture of optimized workflows.'},
+      {h:'How We Help',list:['Led sessions to identify pain points and develop solutions with teams using SAP GRC (Governance, Risk &amp; Compliance).','Designed current-state process diagrams to pinpoint optimization and consolidation opportunities.','Built a centralized inventory of ISRM SOPs to track maturity and improve accessibility.','Created dashboards to improve transparency and track optimizations.']},
+      {h:'The Impact',list:['Freed four product team resources ($1M) and eleven business resources ($2.75M).','Reduced effort and cycle time by fifteen days, removing the workload of up to three teams.','Scored more than 100 SOPs for process maturity, with remediation recommendations.']}
+    ]},
+    rpa:{eyebrow:'Data &amp; Analytics · Intelligent Automation &amp; AI',title:'$2M in savings automating the back office',stat:'$2M saved',sections:[
+      {h:'The Challenge',p:'The client wanted more efficient back-office operations and high-quality data management, replacing manual processes with advanced RPA while keeping the project on budget.'},
+      {h:'How We Help',list:['Deployed a nearshore RPA team to optimize data management cost-effectively.','Implemented UiPath RPA to automate back-office functions, and enhanced SQL Server and ETL processes for performance and security.','Tech stack: UiPath, SQL Server, Azure, ETL, Power BI, and Python.']},
+      {h:'The Impact',list:['$2M in savings.','Faster deployment and closer collaboration.','Greater operational speed.','Increased data accuracy.']}
+    ]},
+    retail:{eyebrow:'Retail Technology · Cloud Engineering',title:'Event-driven disaster recovery protecting $5B in perishable inventory',stat:'$5B inventory protected',sections:[
+      {h:'The Challenge',p:'A top-five retailer was losing more than $5B annually from planned and unplanned power outages that compromised refrigerated and perishable inventory across thousands of distributed store locations.'},
+      {h:'How We Help',list:['Designed and implemented a centralized disaster-recovery tool as an operational command center for outage planning, real-time response, and enterprise resilience.','Built an event-driven microservices back-end that processed outage events, triggered alerts, orchestrated vendor coordination, and managed deployment timelines across thousands of locations.','Used AI-assisted development to deliver a secure, role-based dashboard with live operational visibility, vendor workflows, timeline tracking, and financial exposure across outage scenarios.']},
+      {h:'The Impact',list:['Improved preparedness through scenario modeling and proactive resource positioning ahead of forecasted events.','Faster vendor mobilization and emergency equipment deployment during disruptions.','A scalable, event-driven resilience platform protecting billions in perishable inventory.']}
+    ]}
+  };
+
+  const WAVES={
+    w1:{eyebrow:'Wave 1 · Months 0–3',title:'Automate: productivity &amp; quality gains',stat:'Efficiency gains, no org change',sections:[
+      {h:'What happens',p:'The first wave is tooling only. It lifts delivery and builds the evidence the later, harder waves depend on.'},
+      {h:'Workstreams',items:[
+        {name:'Engineering Productivity Assessment',detail:'Baseline deployment frequency, lead time, and defect rates; identify automation candidates and ROI targets.',outcome:'Surfaces efficiency gains before any restructuring.'},
+        {name:'AI-Assisted QA',detail:'Generate test cases from Jira stories, auto-build regression suites, and use AI for defect triage and root-cause analysis.',outcome:'Lower testing effort, higher software quality.'},
+        {name:'AI-Assisted Development',detail:'Standardize Copilot Enterprise / Claude Code; AI-generated unit tests, code review, and documentation.',outcome:'Faster delivery without added headcount.'}
+      ]}
+    ]},
+    w2:{eyebrow:'Wave 2 · Months 3–9',title:'Consolidate: structural efficiency',stat:'Remove duplicated cost',sections:[
+      {h:'What happens',p:'With Wave 1 evidence in hand, the work shifts to structure: platforms and roles that are duplicated across teams get consolidated.'},
+      {h:'Workstreams',items:[
+        {name:'Shared Platform Engineering Team',detail:'Consolidate CI/CD into one platform team; centralize Kubernetes, observability, and cloud ops; enable self-service infrastructure provisioning.',outcome:'Lower operational cost, more consistency.'},
+        {name:'Delivery Pod Rationalization',detail:'Shared QA, Scrum Master, and Agile Coach pools; centralized UX, DevOps, and Architecture; fewer redundant management layers.',outcome:'Lower delivery cost, minimal capacity impact.'},
+        {name:'Product Attribute Enrichment Agent',detail:'Auto-populate missing product attributes and apply AI taxonomy classification and standardization.',outcome:'Better search, discoverability, and customer experience.'}
+      ]}
+    ]},
+    w3:{eyebrow:'Wave 3 · Months 9–18',title:'Relocate: labor cost restructuring',stat:'Direct labor cost reduction',sections:[
+      {h:'What happens',p:'Only work that is already stable and low-risk relocates.'},
+      {h:'Offshore candidates',items:[
+        {name:'Application maintenance &amp; enhancements',detail:'Steady-state work with clear runbooks.'},
+        {name:'Manual &amp; regression testing',detail:'Already automated and documented during Wave 1.'},
+        {name:'L1 / L2 support',detail:'Defined processes and escalation paths.'},
+        {name:'Mature data engineering &amp; reporting',detail:'Stable pipelines and recurring reporting.'}
+      ]},
+      {callout:{label:'Retained onshore',text:'Product, Architecture, and Technical Leadership.'}},
+      {h:'Why this comes last',p:'Offshoring is the most sensitive lever, given people, locations, and attrition risk. Sequencing it last means relocating work that is already automated, standardized, and well documented, rather than fragile, tribal-knowledge work.'},
+      {h:'Outcome',p:'Direct labor cost reduction for targeted functions, with quality risk minimized.'}
+    ]}
+  };
+
+  function openModal(d){
+    if(!d) return;
+    document.getElementById('cmEyebrow').innerHTML=d.eyebrow;
+    document.getElementById('cmTitle').innerHTML=d.title;
+    document.getElementById('cmStat').innerHTML=d.stat;
+    document.getElementById('cmBody').innerHTML=renderSections(d.sections);
+    const m=document.getElementById('caseModal'); m.classList.add('show'); m.querySelector('.cm-modal').scrollTop=0;
+  }
+  function openCase(id){openModal(CASES[id]);}
+  function openWave(id){openModal(WAVES[id]);}
+  function closeCase(){document.getElementById('caseModal').classList.remove('show');}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCase();});
   /* ---- password gate ---- */
   const PASSWORD="ExperisValue";
   const gate=document.getElementById('gate'), app=document.getElementById('app');
@@ -840,8 +1052,14 @@
   const N=slides.length; let cur=0;
   document.getElementById('tot').textContent=N;
   const idx=document.getElementById('index'), dots=document.getElementById('dots');
+  let appendixSepDone=false;
   slides.forEach((s,i)=>{
-    const it=document.createElement('div'); it.className='nav-item';
+    const isAppendix=s.hasAttribute('data-appendix');
+    if(isAppendix && !appendixSepDone){
+      const sep=document.createElement('div'); sep.className='nav-sep'; sep.textContent='Appendix';
+      idx.appendChild(sep); appendixSepDone=true;
+    }
+    const it=document.createElement('div'); it.className='nav-item'+(isAppendix?' appendix-item':'');
     it.innerHTML=`<span class="num">${i+1}</span><span>${s.dataset.title}</span>`;
     it.onclick=()=>go(i); idx.appendChild(it);
     const d=document.createElement('span'); d.className='d'; d.onclick=()=>go(i); dots.appendChild(d);
